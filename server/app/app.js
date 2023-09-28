@@ -1,16 +1,15 @@
-require('./../index');
-const express = require('express');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
-const cors = require('cors');
-const fileUpload = require('express-fileupload');
+import express from 'express';
+import cookieParser from 'cookie-parser';
+import bodyParser from 'body-parser';
+import morgan from 'morgan';
+import cors from 'cors';
+import fileUpload from 'express-fileupload';
 
 // const router = require('./../routes/index');
 
 const server = express();
 
-server.name = 'ArteK';
+// server.name = 'ArteK';
 server.use(cors());
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 server.use(bodyParser.json({ limit: '50mb' }));
@@ -45,4 +44,4 @@ server.use((err, req, res, next) => {
   res.status(status).send(message);
 });
 
-module.exports = server;
+export default server;
