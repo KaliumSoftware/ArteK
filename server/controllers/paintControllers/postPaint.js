@@ -6,17 +6,16 @@ const postService = async (price, model, color, amount, description, image) => {
     const modelLower = model.toLowerCase();
 
     let existingModel = await Paint.findOne({
-        modelLower,
+      modelLower
     });
 
     let existingColor = await Paint.findOne({
-        colorLower,
-        amount
+      colorLower,
+      amount
     });
 
     if (existingModel) {
       if (existingModel.isActive) {
-        if()
         throw new Error('Pintura repetida');
       } else {
         existingService.isActive = true;
