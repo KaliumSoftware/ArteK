@@ -2,8 +2,10 @@ import { Schema, model } from 'mongoose';
 
 const paintSchema = new Schema({
   price: { type: Number },
-  color: { type: String },
   model: { type: String },
+  modelLower: { type: String },
+  color: { type: String },
+  amount: { type: Number },
   description: { type: String },
   image: { publicId: String, url: String },
   reviews: { type: Array },
