@@ -1,37 +1,36 @@
-const Paint = require('../../models/paint');
+import { Paint } from '../../models/paint';
 
-const postService = async (price, model, color, amount, description, image) => {
+const postPaint = async (price, model, color, amount, description, image) => {
   try {
     const colorLower = color.toLowerCase();
     const modelLower = model.toLowerCase();
+    const amountLower = amount.toLowerCase();
 
-    let existingModel = await Paint.findOne({
-      modelLower
-    });
-
-    let existingColor = await Paint.findOne({
+    let existingPaint = await Paint.findOne({
+      modelLower,
       colorLower,
-      amount
+      amountLower
     });
 
-    if (existingModel) {
-      if (existingModel.isActive) {
+    if (existingPaint) {
+      if (existingPaint.isActive) {
         throw new Error('Pintura repetida');
       } else {
-        existingService.isActive = true;
+        existingPaint.isActive = true;
         await existingService.save();
-        return 'El servicio fue creado';
+        return 'La Pintura fue agregada';
       }
     } else {
       await Service.create({
-        category,
-        categoryLower,
-        name,
-        nameLower,
+        price,
+        modelLower,
+        colorLower,
+        amountLower,
+        description,
         image
       });
       return {
-        message: 'El servicio fue creado'
+        message: 'La Pintura fue agregada'
       };
     }
   } catch (error) {
@@ -39,4 +38,4 @@ const postService = async (price, model, color, amount, description, image) => {
   }
 };
 
-module.exports = postService;
+module.exports = postPaint;
