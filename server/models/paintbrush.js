@@ -4,7 +4,7 @@ const paintbrushSchema = new Schema({
   price: { type: Number },
   color: { type: String },
   model: { type: String },
-  modelLower: { type: String },
+  size: { type: String },
   description: { type: String },
   image: { publicId: String, url: String },
   reviews: { type: Array },
