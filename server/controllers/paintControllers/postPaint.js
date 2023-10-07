@@ -2,8 +2,8 @@ import { Paint } from '../../models/paint';
 
 const postPaint = async (price, model, color, amount, description, image) => {
   try {
-    const colorLower = color.toLowerCase();
     const modelLower = model.toLowerCase();
+    const colorLower = color.toLowerCase();
     const amountLower = amount.toLowerCase();
 
     let existingPaint = await Paint.findOne({
@@ -18,7 +18,7 @@ const postPaint = async (price, model, color, amount, description, image) => {
       } else {
         existingPaint.isActive = true;
         await existingService.save();
-        return 'La Pintura fue agregada';
+        return 'La pintura fue agregada';
       }
     } else {
       await Service.create({
@@ -30,7 +30,7 @@ const postPaint = async (price, model, color, amount, description, image) => {
         image
       });
       return {
-        message: 'La Pintura fue agregada'
+        message: 'La pintura fue agregada'
       };
     }
   } catch (error) {
