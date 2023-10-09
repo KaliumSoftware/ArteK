@@ -1,6 +1,6 @@
 import { Paint } from '../../models/paint';
 
-const getPaint = async () => {
+const getPaintbrush = async () => {
   try {
     const paints = await Paint.find({ isActive: true }).select(
       '-modelLower -colorLower -amountLower'
@@ -15,4 +15,4 @@ const getPaint = async () => {
   }
 };
 
-module.exports = getPaint;
+module.exports = getPaintbrush;
