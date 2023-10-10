@@ -1,6 +1,13 @@
 import { Paint } from '../../models/paint';
 
-const postPaint = async (price, model, color, amount, description, image) => {
+const postPaintbrush = async (
+  price,
+  model,
+  color,
+  amount,
+  description,
+  image
+) => {
   try {
     const modelLower = model.toLowerCase();
     const colorLower = color.toLowerCase();
@@ -38,4 +45,4 @@ const postPaint = async (price, model, color, amount, description, image) => {
   }
 };
 
-module.exports = postPaint;
+module.exports = postPaintbrush;
