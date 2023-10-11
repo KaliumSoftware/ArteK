@@ -17,7 +17,7 @@ const postPaint = async (price, model, color, amount, description, image) => {
         throw new Error('La pintura ya existe');
       } else {
         existingPaint.isActive = true;
-        await existingService.save();
+        await existingPaint.save();
         return 'La pintura fue agregada';
       }
     } else {
