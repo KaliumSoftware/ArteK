@@ -14,7 +14,7 @@ const postPaint = async (price, model, color, amount, description, image) => {
 
     if (existingPaint) {
       if (existingPaint.isActive) {
-        throw new Error('Pintura repetida');
+        throw new Error('La pintura ya existe');
       } else {
         existingPaint.isActive = true;
         await existingService.save();
