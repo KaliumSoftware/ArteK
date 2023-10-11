@@ -1,36 +1,36 @@
 import { Paint } from '../../models/paint';
 
-const postPaint = async (price, model, color, amount, description, image) => {
+const postRoller = async (price, model, color, size, description, image) => {
   try {
     const modelLower = model.toLowerCase();
     const colorLower = color.toLowerCase();
-    const amountLower = amount.toLowerCase();
+    const sizeLower = size.toLowerCase();
 
-    let existingPaint = await Paint.findOne({
+    let existingRoller = await Paint.findOne({
       modelLower,
       colorLower,
-      amountLower
+      sizeLower
     });
 
-    if (existingPaint) {
-      if (existingPaint.isActive) {
-        throw new Error('Pintura repetida');
+    if (existingRoller) {
+      if (existingRoller.isActive) {
+        throw new Error('Rodillo repetido');
       } else {
-        existingPaint.isActive = true;
-        await existingService.save();
-        return 'La pintura fue agregada';
+        existingRoller.isActive = true;
+        await existingRoller.save();
+        return 'El rodillo fue agregada';
       }
     } else {
-      await Service.create({
+      await Paint.create({
         price,
-        modelLower,
-        colorLower,
-        amountLower,
+        model,
+        color,
+        size,
         description,
         image
       });
       return {
-        message: 'La pintura fue agregada'
+        message: 'El rodillo fue agregada'
       };
     }
   } catch (error) {
@@ -38,4 +38,4 @@ const postPaint = async (price, model, color, amount, description, image) => {
   }
 };
 
-module.exports = postPaint;
+module.exports = postRoller;

@@ -2,8 +2,8 @@ import { Schema, model } from 'mongoose';
 
 const rollerSchema = new Schema({
   price: { type: Number },
-  color: { type: String },
   model: { type: String },
+  color: { type: String },
   size: { type: String },
   description: { type: String },
   image: { publicId: String, url: String },
