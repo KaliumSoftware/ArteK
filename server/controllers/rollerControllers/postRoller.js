@@ -1,15 +1,15 @@
 import { Paint } from '../../models/paint';
 
-const postPaint = async (price, model, color, amount, description, image) => {
+const postPaint = async (price, model, color, size, description, image) => {
   try {
     const modelLower = model.toLowerCase();
     const colorLower = color.toLowerCase();
-    const amountLower = amount.toLowerCase();
+    const sizeLower = size.toLowerCase();
 
     let existingPaint = await Paint.findOne({
       modelLower,
       colorLower,
-      amountLower
+      sizeLower
     });
 
     if (existingPaint) {
@@ -23,9 +23,9 @@ const postPaint = async (price, model, color, amount, description, image) => {
     } else {
       await Service.create({
         price,
-        modelLower,
-        colorLower,
-        amountLower,
+        model,
+        color,
+        size,
         description,
         image
       });
