@@ -1,22 +1,14 @@
 import { Paint } from '../../models/paint';
 
-const putPaint = async (
-  id,
-  price,
-  model,
-  color,
-  amount,
-  description,
-  image
-) => {
+const putPaint = async (id, price, model, color, size, description, image) => {
   try {
     const modelLower = model.toLowerCase();
     const colorLower = color.toLowerCase();
-    const amountLower = amount.toLowerCase();
+    const sizeLower = size.toLowerCase();
     const existingPaint = await Paint.findOne({ _id: id });
 
     if (!existingPaint || existingPaint.isActive === false) {
-      throw new Error('La pintura no existe');
+      throw new Error('El cepillo no existe');
     } else {
       if (price) {
         existingService.price = price;
@@ -27,8 +19,8 @@ const putPaint = async (
       if (color) {
         existingService.color = colorLower;
       }
-      if (amount) {
-        existingService.amount = amountLower;
+      if (size) {
+        existingService.size = sizeLower;
       }
       if (description) {
         existingService.description = description;
@@ -38,7 +30,7 @@ const putPaint = async (
       }
       await existingPaint.save();
       return {
-        message: 'La pintura fue actualizado'
+        message: 'El cepillo fue actualizado'
       };
     }
   } catch (error) {
