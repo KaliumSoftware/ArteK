@@ -1,14 +1,14 @@
 import { Paint } from '../../models/paint';
 
-const deletePaint = async (id) => {
+const deletePaintbrush = async (id) => {
   try {
-    const existingPaint = await Paint.findOne({ _id: id });
+    const existingPaintbrush = await Paint.findOne({ _id: id });
 
-    if (!existingPaint || existingPaint.isActive === false) {
+    if (!existingPaintbrush || existingPaintbrush.isActive === false) {
       throw new Error('No se encontró la pintura');
     } else {
-      existingPaint.isActive = false;
-      await existingPaint.save();
+      existingPaintbrush.isActive = false;
+      await existingPaintbrush.save();
       return {
         message: 'Eliminaste la pintura'
       };
@@ -18,4 +18,4 @@ const deletePaint = async (id) => {
   }
 };
 
-module.exports = deletePaint;
+module.exports = deletePaintbrush;
