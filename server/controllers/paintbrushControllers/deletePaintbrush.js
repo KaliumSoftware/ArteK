@@ -5,12 +5,12 @@ const deletePaintbrush = async (id) => {
     const existingPaintbrush = await Paint.findOne({ _id: id });
 
     if (!existingPaintbrush || existingPaintbrush.isActive === false) {
-      throw new Error('No se encontró la pintura');
+      throw new Error('No se encontró el cepillo');
     } else {
       existingPaintbrush.isActive = false;
       await existingPaintbrush.save();
       return {
-        message: 'Eliminaste la pintura'
+        message: 'Eliminaste el cepillo'
       };
     }
   } catch (error) {
