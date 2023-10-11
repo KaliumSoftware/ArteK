@@ -19,22 +19,22 @@ const putPaint = async (
       throw new Error('La pintura no existe');
     } else {
       if (price) {
-        existingService.price = price;
+        existingPaint.price = price;
       }
       if (model) {
-        existingService.model = modelLower;
+        existingPaint.model = modelLower;
       }
       if (color) {
-        existingService.color = colorLower;
+        existingPaint.color = colorLower;
       }
       if (amount) {
-        existingService.amount = amountLower;
+        existingPaint.amount = amountLower;
       }
       if (description) {
-        existingService.description = description;
+        existingPaint.description = description;
       }
       if (image) {
-        existingService.image = image;
+        existingPaint.image = image;
       }
       await existingPaint.save();
       return {
