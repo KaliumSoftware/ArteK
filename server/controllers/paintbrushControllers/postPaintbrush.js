@@ -4,40 +4,36 @@ const postPaintbrush = async (
   price,
   model,
   color,
-  amount,
+  size,
   description,
   image
 ) => {
   try {
-    const modelLower = model.toLowerCase();
-    const colorLower = color.toLowerCase();
-    const amountLower = amount.toLowerCase();
-
-    let existingPaint = await Paint.findOne({
-      modelLower,
-      colorLower,
-      amountLower
+    let existingPaintbrush = await Paint.findOne({
+      model,
+      color,
+      size
     });
 
-    if (existingPaint) {
-      if (existingPaint.isActive) {
-        throw new Error('Pintura repetida');
+    if (existingPaintbrush) {
+      if (existingPaintbrush.isActive) {
+        throw new Error('El cepillo ya existe');
       } else {
-        existingPaint.isActive = true;
+        existingPaintbrush.isActive = true;
         await existingService.save();
-        return 'La pintura fue agregada';
+        return 'El cepillo fue agregado';
       }
     } else {
       await Service.create({
         price,
-        modelLower,
-        colorLower,
-        amountLower,
+        model,
+        color,
+        size,
         description,
         image
       });
       return {
-        message: 'La pintura fue agregada'
+        message: 'El cepillo fue agregado'
       };
     }
   } catch (error) {
