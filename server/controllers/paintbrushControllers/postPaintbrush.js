@@ -9,10 +9,14 @@ const postPaintbrush = async (
   image
 ) => {
   try {
+    const modelLower = model.toLowerCase();
+    const colorLower = color.toLowerCase();
+    const sizeLower = size.toLowerCase();
+
     let existingPaintbrush = await Paint.findOne({
-      model,
-      color,
-      size
+      modelLower,
+      colorLower,
+      sizeLower
     });
 
     if (existingPaintbrush) {
@@ -20,11 +24,11 @@ const postPaintbrush = async (
         throw new Error('El cepillo ya existe');
       } else {
         existingPaintbrush.isActive = true;
-        await existingService.save();
+        await existingPaintbrush.save();
         return 'El cepillo fue agregado';
       }
     } else {
-      await Service.create({
+      await Paint.create({
         price,
         model,
         color,
