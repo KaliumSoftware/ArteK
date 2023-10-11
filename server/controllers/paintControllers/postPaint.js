@@ -21,7 +21,7 @@ const postPaint = async (price, model, color, amount, description, image) => {
         return 'La pintura fue agregada';
       }
     } else {
-      await Service.create({
+      await Paint.create({
         price,
         model,
         color,
