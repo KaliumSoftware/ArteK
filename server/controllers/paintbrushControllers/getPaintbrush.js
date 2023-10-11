@@ -2,13 +2,11 @@ import { Paint } from '../../models/paint';
 
 const getPaintbrush = async () => {
   try {
-    const paints = await Paint.find({ isActive: true }).select(
-      '-modelLower -colorLower -amountLower'
-    );
-    if (paints.length === 0) {
-      throw new Error('No hay Pinturas');
+    const paintbrush = await Paint.find({ isActive: true });
+    if (paintbrush.length === 0) {
+      throw new Error('No hay cepillos');
     } else {
-      return paints;
+      return paintbrush;
     }
   } catch (error) {
     return error;
