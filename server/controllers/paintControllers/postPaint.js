@@ -23,9 +23,9 @@ const postPaint = async (price, model, color, amount, description, image) => {
     } else {
       await Service.create({
         price,
-        modelLower,
-        colorLower,
-        amountLower,
+        model,
+        color,
+        amount,
         description,
         image
       });
