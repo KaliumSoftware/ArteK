@@ -1,16 +1,16 @@
 import { Paint } from '../../models/paint';
 
-const deletePaint = async (id) => {
+const deleteRoller = async (id) => {
   try {
-    const existingPaint = await Paint.findOne({ _id: id });
+    const existingRoller = await Paint.findOne({ _id: id });
 
-    if (!existingPaint || existingPaint.isActive === false) {
-      throw new Error('No se encontró la pintura');
+    if (!existingRoller || existingRoller.isActive === false) {
+      throw new Error('No se encontró el rodillo');
     } else {
-      existingPaint.isActive = false;
-      await existingPaint.save();
+      existingRoller.isActive = false;
+      await existingRoller.save();
       return {
-        message: 'Eliminaste la pintura'
+        message: 'Eliminaste el rodillo'
       };
     }
   } catch (error) {
@@ -18,4 +18,4 @@ const deletePaint = async (id) => {
   }
 };
 
-module.exports = deletePaint;
+module.exports = deleteRoller;
