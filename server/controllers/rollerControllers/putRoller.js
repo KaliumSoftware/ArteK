@@ -1,44 +1,36 @@
 import { Paint } from '../../models/paint';
 
-const putPaint = async (
-  id,
-  price,
-  model,
-  color,
-  amount,
-  description,
-  image
-) => {
+const putPaint = async (id, price, model, color, size, description, image) => {
   try {
     const modelLower = model.toLowerCase();
     const colorLower = color.toLowerCase();
-    const amountLower = amount.toLowerCase();
-    const existingPaint = await Paint.findOne({ _id: id });
+    const sizeLower = size.toLowerCase();
+    const existingRoller = await Paint.findOne({ _id: id });
 
-    if (!existingPaint || existingPaint.isActive === false) {
-      throw new Error('La pintura no existe');
+    if (!existingRoller || existingRoller.isActive === false) {
+      throw new Error('El rodillo no existe');
     } else {
       if (price) {
-        existingService.price = price;
+        existingRoller.price = price;
       }
       if (model) {
-        existingService.model = modelLower;
+        existingRoller.model = modelLower;
       }
       if (color) {
-        existingService.color = colorLower;
+        existingRoller.color = colorLower;
       }
-      if (amount) {
-        existingService.amount = amountLower;
+      if (size) {
+        existingRoller.size = sizeLower;
       }
       if (description) {
-        existingService.description = description;
+        existingRoller.description = description;
       }
       if (image) {
-        existingService.image = image;
+        existingRoller.image = image;
       }
-      await existingPaint.save();
+      await existingRoller.save();
       return {
-        message: 'La pintura fue actualizado'
+        message: 'El rodillo fue actualizado'
       };
     }
   } catch (error) {
