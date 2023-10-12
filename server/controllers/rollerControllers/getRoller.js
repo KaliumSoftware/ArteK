@@ -1,18 +1,16 @@
 import { Paint } from '../../models/paint';
 
-const getPaint = async () => {
+const getRoller = async () => {
   try {
-    const paints = await Paint.find({ isActive: true }).select(
-      '-modelLower -colorLower -amountLower'
-    );
-    if (paints.length === 0) {
-      throw new Error('No hay Pinturas');
+    const rollers = await Paint.find({ isActive: true });
+    if (rollers.length === 0) {
+      throw new Error('No hay rodillos');
     } else {
-      return paints;
+      return rollers;
     }
   } catch (error) {
     return error;
   }
 };
 
-module.exports = getPaint;
+module.exports = getRoller;
