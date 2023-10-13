@@ -1,11 +1,11 @@
-import { Paint } from '../../models/paint';
+import { Roller } from '../../models/roller';
 
-const putPaint = async (id, price, model, color, size, description, image) => {
+const putRoller = async (id, price, model, color, size, description, image) => {
   try {
     const modelLower = model.toLowerCase();
     const colorLower = color.toLowerCase();
     const sizeLower = size.toLowerCase();
-    const existingRoller = await Paint.findOne({ _id: id });
+    const existingRoller = await Roller.findOne({ _id: id });
 
     if (!existingRoller || existingRoller.isActive === false) {
       throw new Error('El rodillo no existe');
@@ -38,4 +38,4 @@ const putPaint = async (id, price, model, color, size, description, image) => {
   }
 };
 
-module.exports = putPaint;
+module.exports = putRoller;
