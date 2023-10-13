@@ -49,4 +49,4 @@ userSchema.set('toJSON', {
 
 const User = model('User', consumerSchema);
 
-export default Order;
+export default User;
