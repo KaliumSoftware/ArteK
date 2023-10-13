@@ -1,8 +1,8 @@
-import { Paint } from '../../models/paint';
+import { Paintbrush } from '../../models/paintbrush';
 
 const deletePaintbrush = async (id) => {
   try {
-    const existingPaintbrush = await Paint.findOne({ _id: id });
+    const existingPaintbrush = await Paintbrush.findOne({ _id: id });
 
     if (!existingPaintbrush || existingPaintbrush.isActive === false) {
       throw new Error('No se encontró el cepillo');
