@@ -1,8 +1,8 @@
-import { Paint } from '../../models/paint';
+import { Roller } from '../../models/roller';
 
 const deleteRoller = async (id) => {
   try {
-    const existingRoller = await Paint.findOne({ _id: id });
+    const existingRoller = await Roller.findOne({ _id: id });
 
     if (!existingRoller || existingRoller.isActive === false) {
       throw new Error('No se encontró el rodillo');
