@@ -1,4 +1,4 @@
-import { Paint } from '../../models/paint';
+import { Roller } from '../../models/roller';
 
 const postRoller = async (price, model, color, size, description, image) => {
   try {
@@ -6,7 +6,7 @@ const postRoller = async (price, model, color, size, description, image) => {
     const colorLower = color.toLowerCase();
     const sizeLower = size.toLowerCase();
 
-    let existingRoller = await Paint.findOne({
+    let existingRoller = await Roller.findOne({
       modelLower,
       colorLower,
       sizeLower
@@ -21,7 +21,7 @@ const postRoller = async (price, model, color, size, description, image) => {
         return 'El rodillo fue agregada';
       }
     } else {
-      await Paint.create({
+      await Roller.create({
         price,
         model,
         color,
