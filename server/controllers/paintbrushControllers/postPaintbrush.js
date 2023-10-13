@@ -1,4 +1,4 @@
-import { Paint } from '../../models/paint';
+import { Paintbrush } from '../../models/paintbrush';
 
 const postPaintbrush = async (
   price,
@@ -13,7 +13,7 @@ const postPaintbrush = async (
     const colorLower = color.toLowerCase();
     const sizeLower = size.toLowerCase();
 
-    let existingPaintbrush = await Paint.findOne({
+    let existingPaintbrush = await Paintbrush.findOne({
       modelLower,
       colorLower,
       sizeLower
@@ -28,7 +28,7 @@ const postPaintbrush = async (
         return 'El cepillo fue agregado';
       }
     } else {
-      await Paint.create({
+      await Paintbrush.create({
         price,
         model,
         color,

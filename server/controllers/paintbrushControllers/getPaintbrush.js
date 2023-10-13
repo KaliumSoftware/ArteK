@@ -1,8 +1,8 @@
-import { Paint } from '../../models/paint';
+import { Paintbrush } from '../../models/paintbrush';
 
 const getPaintbrush = async () => {
   try {
-    const paintbrush = await Paint.find({ isActive: true });
+    const paintbrush = await Paintbrush.find({ isActive: true });
     if (paintbrush.length === 0) {
       throw new Error('No hay cepillos');
     } else {

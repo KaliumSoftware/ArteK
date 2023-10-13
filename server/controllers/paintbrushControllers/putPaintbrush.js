@@ -1,4 +1,4 @@
-import { Paint } from '../../models/paint';
+import { Paintbrush } from '../../models/paintbrush';
 
 const putPaintbrush = async (
   id,
@@ -13,7 +13,7 @@ const putPaintbrush = async (
     const modelLower = model.toLowerCase();
     const colorLower = color.toLowerCase();
     const sizeLower = size.toLowerCase();
-    const existingPaintbrush = await Paint.findOne({ _id: id });
+    const existingPaintbrush = await Paintbrush.findOne({ _id: id });
 
     if (!existingPaintbrush || existingPaintbrush.isActive === false) {
       throw new Error('El cepillo no existe');
