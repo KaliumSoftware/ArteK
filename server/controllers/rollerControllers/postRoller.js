@@ -37,5 +37,4 @@ const postRoller = async (price, model, color, size, description, image) => {
     return error;
   }
 };
-
 module.exports = postRoller;
