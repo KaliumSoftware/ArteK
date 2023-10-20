@@ -9,7 +9,11 @@ const getUser = async (newUser) => {
         usernameLower: 0
       }
     );
-    return consumer ? consumer : false;
+    if (user.length === 0) {
+      throw new Error('No hay usuarios');
+    } else {
+      return user;
+    }
   } catch (error) {
     return false;
   }
