@@ -2,7 +2,7 @@ import { User } from '../../models/user';
 
 const getUser = async (newUser) => {
   try {
-    const consumer = await Consumer.findOne(
+    const user = await User.findOne(
       { userUid: userUid },
       {
         password: 0,
