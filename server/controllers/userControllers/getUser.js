@@ -2,7 +2,12 @@ import { User } from '../../models/user';
 
 const getUser = async (email) => {
   try {
-    const user = await User.findOne({ email: email });
+    const user = await User.findOne(
+      { email: email },
+      {
+        password: 0
+      }
+    );
     if (user.length === 0) {
       throw new Error('No hay usuarios');
     } else {
