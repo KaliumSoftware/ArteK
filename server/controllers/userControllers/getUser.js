@@ -14,7 +14,7 @@ const getUser = async (email) => {
       return user;
     }
   } catch (error) {
-    return false;
+    return error.message;
   }
 };
 
