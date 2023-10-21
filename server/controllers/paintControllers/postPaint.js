@@ -34,7 +34,7 @@ const postPaint = async (price, model, color, amount, description, image) => {
       };
     }
   } catch (error) {
-    return error;
+    return error.message;
   }
 };
 

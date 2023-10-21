@@ -34,7 +34,7 @@ const postRoller = async (price, model, color, size, description, image) => {
       };
     }
   } catch (error) {
-    return error;
+    return error.message;
   }
 };
 module.exports = postRoller;

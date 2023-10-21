@@ -9,7 +9,7 @@ const getPaintbrush = async () => {
       return paintbrush;
     }
   } catch (error) {
-    return error;
+    return error.message;
   }
 };
 

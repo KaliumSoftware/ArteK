@@ -9,7 +9,7 @@ const getRoller = async () => {
       return rollers;
     }
   } catch (error) {
-    return error;
+    return error.message;
   }
 };
 
