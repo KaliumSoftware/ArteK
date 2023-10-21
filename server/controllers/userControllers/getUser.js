@@ -5,7 +5,7 @@ const getUser = async (email) => {
     const user = await User.findOne(
       { email: email },
       {
-        password: 0
+        password: 1
       }
     );
     if (user.length === 0) {
