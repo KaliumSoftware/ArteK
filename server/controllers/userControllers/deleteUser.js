@@ -14,7 +14,7 @@ const deleteUser = async (id) => {
       };
     }
   } catch (error) {
-    return false;
+    return error.message;
   }
 };
 
