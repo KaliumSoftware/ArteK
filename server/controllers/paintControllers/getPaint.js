@@ -11,7 +11,7 @@ const getPaint = async () => {
       return paints;
     }
   } catch (error) {
-    return error;
+    return error.message;
   }
 };
 
