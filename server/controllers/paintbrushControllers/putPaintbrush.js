@@ -42,7 +42,7 @@ const putPaintbrush = async (
       };
     }
   } catch (error) {
-    return error;
+    return error.message;
   }
 };
 
