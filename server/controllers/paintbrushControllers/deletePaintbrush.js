@@ -14,7 +14,7 @@ const deletePaintbrush = async (id) => {
       };
     }
   } catch (error) {
-    return error;
+    return error.message;
   }
 };
 
