@@ -1,18 +1,18 @@
 import { User } from '../../models/user';
 
-const putUser = async (newUser) => {
+const putUser = async (id) => {
   try {
-    const user = await User.findById(id);
+    const user = await User.findOne({ _id: id });
 
-    if (!consumerUser) return false;
-
-    consumerUser.isActive = true;
-
-    await consumerUser.save();
-
-    return {
-      message: 'Usuario eliminado'
-    };
+    if (user || user.isActive === true) {
+      throw new Error('El usuario ya existe');
+    } else {
+      user.isActive = true;
+      await consumerUser.save();
+      return {
+        message: 'Usuario restablecido'
+      };
+    }
   } catch (error) {
     return error.message;
   }
