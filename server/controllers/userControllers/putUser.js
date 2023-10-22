@@ -7,7 +7,7 @@ const putUser = async (id) => {
     if (user || user.isActive === true) {
       throw new Error('El usuario ya existe');
     } else {
-      user.isActive = true;
+      user.isActive = false;
       await consumerUser.save();
       return {
         message: 'Usuario restablecido'
