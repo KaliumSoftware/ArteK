@@ -1,6 +1,6 @@
-import { Paintbrush } from '../../models/paintbrush';
+import { putPaintbrush } from '../../controllers/paintbrushControllers/putPaintbrush';
 
-const putPaintbrush = async (
+const handlerPutPaintbrush = async (
   id,
   price,
   model,
@@ -15,4 +15,4 @@ const putPaintbrush = async (
   }
 };
 
-module.exports = putPaintbrush;
+module.exports = handlerPutPaintbrush;
