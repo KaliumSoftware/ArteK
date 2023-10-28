@@ -1,4 +1,4 @@
-import { Paintbrush } from '../../models/paintbrush';
+import { deletePaintbrush } from '../../controllers/paintbrushControllers/deletePaintbrush';
 
 const deletePaintbrush = async (id) => {
   try {

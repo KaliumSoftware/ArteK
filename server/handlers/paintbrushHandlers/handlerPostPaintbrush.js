@@ -1,4 +1,4 @@
-import { Paintbrush } from '../../models/paintbrush';
+import { postPaintbrush } from '../../controllers/paintbrushControllers/postPaintbrush';
 
 const postPaintbrush = async (
   price,

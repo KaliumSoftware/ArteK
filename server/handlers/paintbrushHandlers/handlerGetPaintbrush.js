@@ -1,4 +1,4 @@
-import { Paintbrush } from '../../models/paintbrush';
+import { getPaintbrush } from '../../controllers/paintbrushControllers/getPaintbrush';
 
 const getPaintbrush = async () => {
   try {
