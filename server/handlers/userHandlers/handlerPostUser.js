@@ -1,9 +1,9 @@
-import { User } from '../../models/user';
+import { postUser } from '../../controllers/userControllers/postUser';
 
-const postUser = async (newUser) => {
+const handlerPostUser = async (newUser) => {
   try {
   } catch (error) {
     return error.message;
   }
 };
-module.exports = postUser;
+module.exports = handlerPostUser;
