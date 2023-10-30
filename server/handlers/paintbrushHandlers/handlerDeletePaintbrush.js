@@ -1,10 +1,10 @@
 import { deletePaintbrush } from '../../controllers/paintbrushControllers/deletePaintbrush';
 
-const deletePaintbrush = async (id) => {
+const handlerDeletePaintbrush = async (id) => {
   try {
   } catch (error) {
     return error.message;
   }
 };
 
-module.exports = deletePaintbrush;
+module.exports = handlerDeletePaintbrush;
