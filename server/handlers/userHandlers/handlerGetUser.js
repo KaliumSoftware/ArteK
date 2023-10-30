@@ -1,10 +1,10 @@
-import { User } from '../../models/user';
+import { getUser } from '../../controllers/userControllers/getUser';
 
-const getUser = async (email) => {
+const handlerGetUser = async (email) => {
   try {
   } catch (error) {
     return error.message;
   }
 };
 
-module.exports = getUser;
+module.exports = handlerGetUser;
