@@ -1,10 +1,10 @@
-import { User } from '../../models/user';
+import { putUser } from '../../controllers/userControllers/putUser';
 
-const putUser = async (id) => {
+const handlerPutUser = async (id) => {
   try {
   } catch (error) {
     return error.message;
   }
 };
 
-module.exports = putUser;
+module.exports = handlerPutUser;

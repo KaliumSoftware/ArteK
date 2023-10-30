@@ -1,10 +1,10 @@
-import { Roller } from '../../models/roller';
+import { getRoller } from '../../controllers/rollerControllers/getRoller';
 
-const getRoller = async () => {
+const handlerGetRoller = async () => {
   try {
   } catch (error) {
     return error.message;
   }
 };
 
-module.exports = getRoller;
+module.exports = handlerGetRoller;

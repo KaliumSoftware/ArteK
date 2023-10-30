@@ -1,10 +1,18 @@
-import { Roller } from '../../models/roller';
+import { putRoller } from '../../controllers/rollerControllers/putRoller';
 
-const putRoller = async (id, price, model, color, size, description, image) => {
+const handlerPutRoller = async (
+  id,
+  price,
+  model,
+  color,
+  size,
+  description,
+  image
+) => {
   try {
   } catch (error) {
     return error.message;
   }
 };
 
-module.exports = putRoller;
+module.exports = handlerPutRoller;

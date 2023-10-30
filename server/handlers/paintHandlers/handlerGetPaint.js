@@ -1,10 +1,10 @@
-import { Paint } from '../../models/paint';
+import { getPaint } from '../../controllers/paintControllers/getPaint';
 
-const getPaint = async () => {
+const handlerGetPaint = async () => {
   try {
   } catch (error) {
     return error.message;
   }
 };
 
-module.exports = getPaint;
+module.exports = handlerGetPaint;

@@ -1,6 +1,6 @@
 import { postPaintbrush } from '../../controllers/paintbrushControllers/postPaintbrush';
 
-const postPaintbrush = async (
+const handlerPostPaintbrush = async (
   price,
   model,
   color,
@@ -14,4 +14,4 @@ const postPaintbrush = async (
   }
 };
 
-module.exports = postPaintbrush;
+module.exports = handlerPostPaintbrush;
