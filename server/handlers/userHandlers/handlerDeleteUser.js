@@ -1,10 +1,10 @@
-import { User } from '../../models/user';
+import { deleteUser } from '../../controllers/userControllers/deleteUser';
 
-const deleteUser = async (id) => {
+const handlerDeleteUser = async (id) => {
   try {
   } catch (error) {
     return error.message;
   }
 };
 
-module.exports = deleteUser;
+module.exports = handlerDeleteUser;
