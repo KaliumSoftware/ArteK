@@ -1,10 +1,10 @@
-import { Paint } from '../../models/paint';
+import { deletePaint } from '../../controllers/paintControllers/deletePaint';
 
-const deletePaint = async (id) => {
+const handlerDeletePaint = async (id) => {
   try {
   } catch (error) {
     return error.message;
   }
 };
 
-module.exports = deletePaint;
+module.exports = handlerDeletePaint;
