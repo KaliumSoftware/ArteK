@@ -1,10 +1,17 @@
-import { Paint } from '../../models/paint';
+import { postPaint } from '../../controllers/paintControllers/postPaint';
 
-const postPaint = async (price, model, color, amount, description, image) => {
+const handlerPostPaint = async (
+  price,
+  model,
+  color,
+  amount,
+  description,
+  image
+) => {
   try {
   } catch (error) {
     return error.message;
   }
 };
 
-module.exports = postPaint;
+module.exports = handlerPostPaint;
