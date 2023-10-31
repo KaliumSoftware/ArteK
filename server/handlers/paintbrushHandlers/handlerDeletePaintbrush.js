@@ -1,6 +1,6 @@
 import { deletePaintbrush } from '../../controllers/paintbrushControllers/deletePaintbrush';
 
-const handlerDeletePaintbrush = async (id) => {
+const handlerDeletePaintbrush = async (req, res) => {
   try {
     const { id } = req.params;
 
