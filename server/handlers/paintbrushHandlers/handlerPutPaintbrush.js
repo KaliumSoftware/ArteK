@@ -6,7 +6,7 @@ const handlerPutPaintbrush = async (req, res) => {
     const { id } = req.params;
     let image;
 
-    if (!price && !model && !color && !size && !description) {
+    if (!price && !model && !color && !size && !description && !image) {
       throw new Error('Faltan datos');
     } /* else if (req.files?.image) {
       const result = await uploadServiceImage(req.files.image.tempFilePath);
@@ -22,7 +22,8 @@ const handlerPutPaintbrush = async (req, res) => {
         model,
         color,
         size,
-        description
+        description,
+        image
       );
 
       if (updatedPaintbrush.message === 'El cepillo no existe') {

@@ -1,6 +1,6 @@
 import { getPaint } from '../../controllers/paintControllers/getPaint';
 
-const handlerGetPaint = async () => {
+const handlerGetPaint = async (req, res) => {
   try {
     const allPaint = await getPaint();
     if (allPaint.message === 'No hay pinturas') {
