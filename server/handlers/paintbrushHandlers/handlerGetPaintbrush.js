@@ -6,7 +6,7 @@ const handlerGetPaintbrush = async (req, res) => {
     if (allPaintbrush.message === 'No hay cepillos') {
       throw new Error('No se encontraron cepillos');
     }
-    res.status(200).json(allServices);
+    res.status(200).json(allPaintbrush);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
