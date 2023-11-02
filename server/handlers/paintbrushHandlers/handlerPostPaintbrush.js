@@ -3,9 +3,10 @@ import { postPaintbrush } from '../../controllers/paintbrushControllers/postPain
 const handlerPostPaintbrush = async (req, res) => {
   try {
     const { price, model, color, size, description } = req.body;
+
     let image;
 
-    if (!price || !model || !color || !size || description) {
+    if (!price || !model || !color || !size || !description || !image) {
       throw new Error('Faltan datos');
     }
     /* if (req.files?.image) {
