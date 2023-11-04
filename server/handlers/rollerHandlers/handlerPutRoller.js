@@ -2,11 +2,11 @@ import { putRoller } from '../../controllers/rollerControllers/putRoller';
 
 const handlerPutRoller = async (req, res) => {
   try {
-    const { price, model, color, amount, description } = req.body;
+    const { price, model, color, size, description } = req.body;
     const { id } = req.params;
     let image;
 
-    if (!price && !model && !color && !amount && !description && !image) {
+    if (!price && !model && !color && !size && !description && !image) {
       throw new Error('Faltan datos');
     } /* else if (req.files?.image) {
       const result = await uploadServiceImage(req.files.image.tempFilePath);
@@ -16,20 +16,20 @@ const handlerPutRoller = async (req, res) => {
       };
       await fs.unlink(req.files.image.tempFilePath);
     } */ else {
-      const updatedPaint = await putPaint(
+      const updatedRoller = await putRoller(
         id,
         price,
         model,
         color,
-        amount,
+        size,
         description,
         image
       );
 
-      if (updatedPaint.message === 'La pintura no existe') {
-        throw new Error('No existe esa pintura');
+      if (updatedRoller.message === 'El rodillo no existe') {
+        throw new Error('No existe ese rodillo');
       } else {
-        res.status(200).json(updatedPaint);
+        res.status(200).json(updatedRoller);
       }
     }
   } catch (error) {
