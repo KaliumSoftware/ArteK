@@ -1,6 +1,6 @@
 import { deleteRoller } from '../../controllers/rollerControllers/deleteRoller';
 
-const handlerDeleteRoller = async (id) => {
+const handlerDeleteRoller = async (req, res) => {
   try {
     const { id } = req.params;
 

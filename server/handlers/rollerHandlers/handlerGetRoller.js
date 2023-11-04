@@ -1,6 +1,6 @@
 import { getRoller } from '../../controllers/rollerControllers/getRoller';
 
-const handlerGetRoller = async () => {
+const handlerGetRoller = async (req, res) => {
   try {
     const allPaint = await getPaint();
     if (allPaint.message === 'No hay pinturas') {
