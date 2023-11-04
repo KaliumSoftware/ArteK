@@ -1,13 +1,6 @@
 import { postRoller } from '../../controllers/rollerControllers';
 
-const handlerPostRoller = async (
-  price,
-  model,
-  color,
-  size,
-  description,
-  image
-) => {
+const handlerPostRoller = async (req, res) => {
   try {
     const { price, model, color, amount, description } = req.body;
 
