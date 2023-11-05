@@ -2,11 +2,11 @@ import { postRoller } from '../../controllers/rollerControllers';
 
 const handlerPostRoller = async (req, res) => {
   try {
-    const { price, model, color, amount, description } = req.body;
+    const { price, model, color, size, description } = req.body;
 
     let image;
 
-    if (!price || !model || !color || !amount || !description || !image) {
+    if (!price || !model || !color || !size || !description || !image) {
       throw new Error('Faltan datos');
     }
     /* if (req.files?.image) {
@@ -26,18 +26,18 @@ const handlerPostRoller = async (req, res) => {
             }
         } */
 
-    const newPaint = await postPaint(
+    const newRoller = await postRoller(
       price,
       model,
       color,
-      amount,
+      size,
       description,
       image
     );
-    if (newPaint.message === 'La pintura ya existe') {
-      throw new Error('Ya existe esa pintura');
+    if (newRoller.message === 'Rodillo repetido') {
+      throw new Error('Ya existe ese rodillo');
     } else {
-      res.status(200).json(newPaint);
+      res.status(200).json(newRoller);
     }
   } catch (error) {
     res.status(400).json({ error: error.message });
