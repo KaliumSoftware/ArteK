@@ -2,11 +2,11 @@ import { getRoller } from '../../controllers/rollerControllers/getRoller';
 
 const handlerGetRoller = async (req, res) => {
   try {
-    const allPaint = await getPaint();
-    if (allPaint.message === 'No hay pinturas') {
-      throw new Error('No se encontraron pinturas');
+    const allRoller = await getRoller();
+    if (allRoller.message === 'No hay rodillos') {
+      throw new Error('No se encontraron rodillos');
     }
-    res.status(200).json(allPaint);
+    res.status(200).json(allRoller);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
