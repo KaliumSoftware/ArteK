@@ -6,7 +6,7 @@ const getPaint = async () => {
       '-modelLower -colorLower -amountLower'
     );
     if (paints.length === 0) {
-      throw new Error('No hay Pinturas');
+      throw new Error('No hay pinturas');
     } else {
       return paints;
     }
