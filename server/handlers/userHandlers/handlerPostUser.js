@@ -1,9 +1,9 @@
 import { postUser } from '../../controllers/userControllers/postUser';
 
-const handlerPostUser = async (newUser) => {
+const handlerPostUser = async (req, res) => {
   try {
   } catch (error) {
-    return error.message;
+    res.status(400).json({ error: error.message });
   }
 };
 module.exports = handlerPostUser;

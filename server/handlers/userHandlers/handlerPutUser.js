@@ -1,9 +1,9 @@
 import { putUser } from '../../controllers/userControllers/putUser';
 
-const handlerPutUser = async (id) => {
+const handlerPutUser = async (req, res) => {
   try {
   } catch (error) {
-    return error.message;
+    res.status(400).json({ error: error.message });
   }
 };
 

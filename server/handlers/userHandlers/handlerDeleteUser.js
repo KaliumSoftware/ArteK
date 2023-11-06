@@ -1,9 +1,9 @@
 import { deleteUser } from '../../controllers/userControllers/deleteUser';
 
-const handlerDeleteUser = async (id) => {
+const handlerDeleteUser = async (req, res) => {
   try {
   } catch (error) {
-    return error.message;
+    res.status(400).json({ error: error.message });
   }
 };
 
