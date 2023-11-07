@@ -8,7 +8,7 @@ const deleteUser = async (id) => {
       throw new Error('No se encontró usuario');
     } else {
       user.isActive = false;
-      await consumerUser.save();
+      await user.save();
       return {
         message: 'Usuario eliminado'
       };
