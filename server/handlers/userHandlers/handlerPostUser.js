@@ -1,57 +1,45 @@
 import { postUser } from '../../controllers/userControllers/postUser';
 
 const handlerPostUser = async (req, res) => {
-  const {
-    firstName,
-    userUid,
-    lastName,
-    gender,
-    age,
-    email,
-    username,
-    password
-  } = req.body;
+  const { firstName, lastName, gender, birthdate, address, email, password } =
+    req.body;
   try {
     if (
       !firstName ||
       !lastName ||
       !gender ||
-      !age ||
+      !birthdate ||
+      !address ||
       !email ||
-      !username ||
       !password
     ) {
-      return res.status(400).json({ error: 'Faltan datos' });
+      throw new Error('Faltan datos');
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    /* const hashedPassword = await bcrypt.hash(password, 10); */
 
-    const newConsumer = {
+    const newUser = {
       firstName,
       lastName,
       gender,
-      age,
+      birthdate,
+      address,
       email,
-      username,
-      usernameLower: username.toLowerCase(),
       password: hashedPassword,
-      image: {
+      /* image: {
         public_id: 'AUXIE App/Profile photos/Providers/mbvrsqvhpkjdffahemw1',
         secure_url:
           'https://res.cloudinary.com/dvj387b1u/image/upload/v1691558271/AUXIE%20App/Profile%20photos/Providers/mbvrsqvhpkjdffahemw1.png'
-      },
+      }, */
       isActive: true,
-      userUid,
       isAuxie: false
     };
 
-    const createdConsumer = await createConsumer(newConsumer);
+    const createdUser = await postUser(newUser);
 
-    if (createdConsumer === 'emailRepetido') {
+    if (createdUser === 'Ya existe ese email') {
       throw new Error(`El correo ${email} ya esta registrado`);
     }
-    if (createdConsumer === 'usernameRepetido')
-      throw new Error(`El username ${email} ya esta registrado`);
 
     let pronoun;
 
@@ -71,18 +59,18 @@ const handlerPostUser = async (req, res) => {
         break
     }
 
-    const HTMLContent = welcome();
+    /* const HTMLContent = welcome(); */
 
-    const mailOptions = {
+    /* const mailOptions = {
       from: `Team Auxie ${process.env.EMAIL}`,
       to: email,
       subject: `Bienvenid${pronoun} ${firstName}`,
       html: HTMLContent
-    };
+    }; */
 
-    await mailSender(mailOptions);
+    /* await mailSender(mailOptions); */
 
-    res.status(200).json('usuario creado con exito');
+    res.status(200).json(createdUser);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
