@@ -1,17 +1,16 @@
 const { Router } = require('express');
-const  = require('./Routers/');
-const servicesRouter = require('./Routers/servicesRouter');
-const providersRouter = require('./Routers/providersRouter');
-const claimsRouter = require('./Routers/claimsRouter');
-const mercadoPagoRouter = require('./Routers/mercadoPagoRouter');
+const orderRouter = require('./Routers/order');
+const paintRouter = require('./Routers/servicesRouter');
+const paintbrushRouter = require('./Routers/providersRouter');
+const rollerRouter = require('./Routers/claimsRouter');
+const userRouter = require('./Routers/mercadoPagoRouter');
 
 const mainRouter = Router();
 
-mainRouter.use('/order', consumersRouter);
-mainRouter.use('/paint', servicesRouter);
-mainRouter.use('/paintbrush', providersRouter);
-mainRouter.use('/roller', claimsRouter);
-mainRouter.use('/user', claimsRouter);
-mainRouter.use('/buy', mercadoPagoRouter);
+mainRouter.use('/order', orderRouter);
+mainRouter.use('/paint', paintRouter);
+mainRouter.use('/paintbrush', paintbrushRouter);
+mainRouter.use('/roller', rollerRouter);
+mainRouter.use('/user', userRouter);
 
 module.exports = mainRouter;
