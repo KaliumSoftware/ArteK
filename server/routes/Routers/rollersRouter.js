@@ -1,8 +1,8 @@
-const { Router } = require('express');
-const handlerGetRoller = require('../../handlers/rollerHandlers/handlerGetRoller');
-const handlerPostRoller = require('../../handlers/rollerHandlers/handlerPostRoller');
-const handlerDeleteRoller = require('../../handlers/rollerHandlers/handlerDeleteRoller');
-const handlerPutRoller = require('../../handlers/rollerHandlers/handlerPutRoller');
+import { Router } from 'express';
+import { handlerGetRoller } from '../../handlers/rollerHandlers/handlerGetRoller';
+import { handlerPostRoller } from '../../handlers/rollerHandlers/handlerPostRoller';
+import { handlerDeleteRoller } from '../../handlers/rollerHandlers/handlerDeleteRoller';
+import { handlerPutRoller } from '../../handlers/rollerHandlers/handlerPutRoller';
 
 const rollerRouter = Router();
 

@@ -1,13 +1,11 @@
 import { Router } from 'express';
-const orderRouter = require('./routers/order');
-const paintRouter = require('./routers/paintbrushsRouter');
-const paintbrushRouter = require('./routers/paintsRouter');
-const rollerRouter = require('./routers/ordersRouter');
-const userRouter = require('./routers/mercadoPagoRouter');
+import paintRouter from './routers/paintsRouter';
+import paintbrushRouter from './routers/paintbrushsRouter';
+import rollerRouter from './routers/rollersRouter';
+import userRouter from './routers/usersRouter';
 
 const mainRouter = Router();
 
-mainRouter.use('/order', orderRouter);
 mainRouter.use('/paint', paintRouter);
 mainRouter.use('/paintbrush', paintbrushRouter);
 mainRouter.use('/roller', rollerRouter);
