@@ -1,30 +1,17 @@
-const { Router } = require('express')
-const postConsumer = require('../../Handlers/ConsumersHandlers/postConsumer')
-const deleteConsumerById = require('../../Handlers/ConsumersHandlers/deleteConsumerById')
-const loginConsumer = require('../../Handlers/ConsumersHandlers/loginConsumer')
-const getConsumerById = require('../../Handlers/ConsumersHandlers/getConsumerById')
-const getAllConsumers = require('../../Handlers/ConsumersHandlers/getAllConsumers')
-const updateConsumer = require('../../Handlers/ConsumersHandlers/updateConsumer')
-const deleteFavoriteProv = require('../../Handlers/ConsumersHandlers/deleteFavoriteProv')
-const favoriteProviders = require('../../Handlers/ConsumersHandlers/favoriteProviders')
-const revokeTokens = require('../../Handlers/ConsumersHandlers/revokeTokens')
-const updateFirstLogin = require('./../../Handlers/ConsumersHandlers/updateFirstLogin')
-const restoreConsumerById = require('../../Handlers/ConsumersHandlers/restoreConsumerById')
-const consumersRouter = Router()
+import { Router } from 'express';
+import { handlerGetUser } from '../../handlers/userHandlers/handlerGetUser';
+import { handlerPostUser } from '../../handlers/userHandlers/handlerPostUser';
+import { handlerDeleteUser } from '../../handlers/userHandlers/handlerDeleteUser';
+import { handlerPutUser } from '../../handlers/userHandlers/handlerPutUser';
 
-consumersRouter.get('/', getAllConsumers)
-consumersRouter.get('/:id', getConsumerById)
+const userRouter = Router();
 
-consumersRouter.put('/profile', updateConsumer)
-consumersRouter.put('/fav', favoriteProviders)
-consumersRouter.put('/firstLogin', updateFirstLogin)
-consumersRouter.put('/restore/:id', restoreConsumerById)
+userRouter.get('/', handlerGetUser);
 
-consumersRouter.post('/login', loginConsumer)
-consumersRouter.post('/', postConsumer)
-consumersRouter.post('/logout', revokeTokens)
+userRouter.post('/', handlerPostUser);
 
-consumersRouter.delete('/:id', deleteConsumerById)
-consumersRouter.delete('/delete/fav', deleteFavoriteProv)
+userRouter.put('/:id', handlerPutUser);
 
-module.exports = consumersRouter
+userRouter.delete('/:id', handlerDeleteUser);
+
+module.exports = userRouter;
