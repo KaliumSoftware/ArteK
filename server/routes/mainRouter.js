@@ -1,9 +1,9 @@
-const { Router } = require('express');
-const orderRouter = require('./Routers/order');
-const paintRouter = require('./Routers/servicesRouter');
-const paintbrushRouter = require('./Routers/providersRouter');
-const rollerRouter = require('./Routers/claimsRouter');
-const userRouter = require('./Routers/mercadoPagoRouter');
+import { Router } from 'express';
+const orderRouter = require('./routers/order');
+const paintRouter = require('./routers/paintbrushsRouter');
+const paintbrushRouter = require('./routers/paintsRouter');
+const rollerRouter = require('./routers/ordersRouter');
+const userRouter = require('./routers/mercadoPagoRouter');
 
 const mainRouter = Router();
 
