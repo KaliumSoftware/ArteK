@@ -1,40 +1,17 @@
-const { Router } = require('express')
-const postProvider = require('./../../Handlers/ProvidersHandlers/postPorovider')
-const getProviders = require('../../Handlers/ProvidersHandlers/getProviders')
-const deleteProviderById = require('../../Handlers/ProvidersHandlers/deleteProviderById')
-const loginProvider = require('../../Handlers/ProvidersHandlers/loginProvider')
-const getProviderById = require('./../../Handlers/ProvidersHandlers/getProviderById')
-const updateProvider = require('./../../Handlers/ProvidersHandlers/updateProvider')
-const updateOfferedServices = require('./../../Handlers/ProvidersHandlers/updateOfferedServices')
-const updateProviderReviews = require('./../../Handlers/ProvidersHandlers/updateProviderReviews')
-const addNewJob = require('./../../Handlers/ProvidersHandlers/updateJobs')
-const revokeTokens = require('../../Handlers/ConsumersHandlers/revokeTokens')
-const updateInbox = require('./../../Handlers/ProvidersHandlers/updateInbox')
-const updateJobStatus = require('../../Handlers/ProvidersHandlers/updateJobStatus')
-const updateJobPrice = require('../../Handlers/ProvidersHandlers/updateJobPrice')
-const updateFirstLogin = require('./../../Handlers/ProvidersHandlers/updateFirstLogin')
-const restoreProviderById = require('./../../Handlers/ProvidersHandlers/restoreProviderById')
-const getProvUid = require('../../Handlers/ProvidersHandlers/getProvUid')
-const providersRouter = Router()
+import { Router } from 'express';
+import { handlerGetPaint } from '../../handlers/paintHandlers/handlerGetPaint';
+import { handlerPostPaint } from '../../handlers/paintHandlers/handlerPostPaint';
+import { handlerDeletePaint } from '../../handlers/paintHandlers/handlerDeletePaint';
+import { handlerPutPaint } from '../../handlers/paintHandlers/handlerPutPaint';
 
-providersRouter.get('/', getProviders)
-providersRouter.get('/:id', getProviderById)
-providersRouter.get('/uid/:uid', getProvUid)
+const paintRouter = Router();
 
-providersRouter.put('/profile', updateProvider)
-providersRouter.put('/services', updateOfferedServices)
-providersRouter.put('/reviews', updateProviderReviews)
-providersRouter.put('/addJob/:id', addNewJob)
-providersRouter.put('/inbox', updateInbox)
-providersRouter.put('/jobUpdate', updateJobStatus)
-providersRouter.put('/jobPriceUpdate', updateJobPrice)
-providersRouter.put('/firstLogin', updateFirstLogin)
-providersRouter.put('/restore/:id', restoreProviderById)
+paintRouter.get('/', handlerGetPaint);
 
-providersRouter.post('/', postProvider)
-providersRouter.post('/login', loginProvider)
-providersRouter.post('/logout', revokeTokens)
+paintRouter.post('/', handlerPostPaint);
 
-providersRouter.delete('/:id', deleteProviderById)
+paintRouter.put('/:id', handlerPutPaint);
 
-module.exports = providersRouter
+paintRouter.delete('/:id', handlerDeletePaint);
+
+module.exports = paintRouter;
